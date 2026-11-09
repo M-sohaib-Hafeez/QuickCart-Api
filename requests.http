@@ -1,3 +1,12 @@
+### 0. Create a user (required before using the cart)
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com"
+}
+
 ### 1. Seed the Database (Create Products)
 POST http://localhost:3001/api/products
 Content-Type: application/json
@@ -8,7 +17,7 @@ Content-Type: application/json
   "stock": 5
 }
 
-###
+### 2. Seed the Database (Create Products)
 POST http://localhost:3001/api/products
 Content-Type: application/json
 
