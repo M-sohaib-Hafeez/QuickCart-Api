@@ -1,0 +1,54 @@
+### 1. Seed the Database (Create Products)
+POST http://localhost:3001/api/products
+Content-Type: application/json
+
+{
+  "name": "Gaming Laptop",
+  "price": 1200.00,
+  "stock": 5
+}
+
+###
+POST http://localhost:3001/api/products
+Content-Type: application/json
+
+{
+  "name": "Wireless Mouse",
+  "price": 25.00,
+  "stock": 20
+}
+
+### 2. View All Products
+GET http://localhost:3001/api/products
+
+### 3. Add Items to User 1's Cart
+POST http://localhost:3001/api/cart
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "productId": 1,
+  "quantity": 2
+}
+
+###
+POST http://localhost:3001/api/cart
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "productId": 2,
+  "quantity": 3
+}
+
+### 4. View User 1's Cart (Should show 2 Laptops and 3 Mice)
+GET http://localhost:3001/api/cart/1
+
+### 5. CHECKOUT! (This triggers the transaction)
+POST http://localhost:3001/api/checkout/1
+
+### 6. Verify: Check Stock (Laptop should be 3, Mouse should be 17)
+GET http://localhost:3001/api/products
+
+### 7. Verify: Check Cart (Should be empty now!)
+GET http://localhost:3001/api/cart/1
